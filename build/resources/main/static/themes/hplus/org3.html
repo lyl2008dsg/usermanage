@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <TITLE> 变更组织机构</TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css\organigramme\org.css">
+    <link rel="stylesheet" href="plugins\zTree_v3\css\demo.css" type="text/css">
+    <link rel="stylesheet" href="plugins\zTree_v3\css\zTreeStyle\zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="css\bootstrap.min.css?v=3.3.6"  >
+    <link rel="stylesheet" href="css\style.min.css?v=4.1.0"      >
+    <link rel="stylesheet" href="plugins\select2\select2_metro.css" />
+    <!--<link rel="stylesheet" href="laydate/need/laydate.css">-->
+    <link rel="stylesheet" href="plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link href="css/plugins/jqueryFileUpload/jquery.fileupload.css" rel="stylesheet">
+    <link rel="stylesheet" href="css\plugins\datapicker\datepicker3.css" rel="stylesheet">
+
+</HEAD>
+
+<BODY>
+<!--<h1>变更组织</h1>-->
+    <div class="content_wrap cf">
+        <div class="zTreeDemoBackground left fl">
+            <input type="text" placeholder="请在此输入组织" class="select2-container select2-container-multi input-focblu" id="search_now" style="width: 220px;">
+            <ul id="nowOrg" class="ztree"></ul>
+        </div>
+        <!--<button type="button" class="btn btn-primary btn-sm btn-width" onclick="change()">变更</button>-->
+        <!--<button type="button" class="btn btn-primary btn-sm btn-width" onclick="change()">变更</button>-->
+        <div class="right fl">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div id="employeeform" style="display: none">
+                        <div class="col-lg-9 cf" style="margin-left: 8%;">
+                            <div class="img fl">
+                                <img alt="" class="avatar" src="img/profile_small.jpg">
+                            </div>
+                            <div><a class="file_img">更换</a></div>
+                            <!--<div class="help-block">可上传最大图像为200KB</div>-->
+                        </div>
+                        <form method="get" class="form-horizontal" id="empFormId">
+                            <input id="emporgid"    type="hidden" name="emporgid" class="form-control" type="text">
+                            <input id="postId"      type="hidden" name="postId" class="form-control" type="text">
+                            <!--<input id="empId"       type="hidden" name="empId" class="form-control" type="text">-->
+                            <div class="form-group cf">
+                                <label class="col-sm-4 control-label">姓名：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="realname" id="realname"
+                                           required="" aria-required="true" minlength="2" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">编码：</label>
+                                <div class="col-sm-8">
+                                    <input type="TEXT" class="form-control" name="employeeno" id="employeeno"
+                                           required="" aria-required="true" minlength="2" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">性别：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="gender" id="gender"
+                                            required="" aria-required="true" minlength="1" maxlength="10">
+                                        <option></option>
+                                        <option>男</option>
+                                        <option>女</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">民族：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="national" id="national"
+                                           maxlength="32">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">出生日期：</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control layer-date" placeholder="年-月-日"
+                                           id="birthday"
+                                           required="" aria-required="true" >
+                                </div>
+                            </div>
+                            <div class="form-group cf">
+                                <label class="col-sm-4 control-label">年龄：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="age" id="age"
+                                           required="" aria-required="true" minlength="1" maxlength="2" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">身份证号码：</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" name="idCardNumber" id="idCardNumber"
+                                           required="" aria-required="true" minlength="2" maxlength="18">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">政治面貌：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="political" id="political"
+                                            maxlength="20">
+                                        <option></option>
+                                        <option>群众</option>
+                                        <option>党员</option>
+                                        <option>团员</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">学历：</label>
+                                <div class="col-sm-8">
+                                    <!--<input type="text" class="form-control" name="degree" id="degree"-->
+                                           <!--maxlength="20">-->
+                                    <select class="form-control" name="degree" id="degree"
+                                            maxlength="20">
+                                        <option></option>
+                                        <option>博士</option>
+                                        <option>研究生</option>
+                                        <option>本科</option>
+                                        <option>大专</option>
+                                        <option>中专</option>
+                                        <option>高中</option>
+                                        <option>初中</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">籍贯：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="nativePlace" id="nativePlace"
+                                           maxlength="256">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">户口所在地：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="domicilePlace" id="domicilePlace"
+                                           maxlength="256">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">婚姻状况：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="maritalStatus" id="maritalStatus"
+                                            maxlength="10">
+                                        <option></option>
+                                        <option>已婚</option>
+                                        <option>未婚</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">移动号码：</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" name="mobile" id="mobile"
+                                           maxlength="20">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">工作邮箱：</label>
+                                <div class="col-sm-8">
+                                    <input type="email" class="form-control" name="officeemail" id="officeemail"
+                                           maxlength="50">
+                                </div>
+                            </div>
+                            <div class="form-group cf">
+                                <label class="col-sm-4 control-label">紧急联系人：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="emergencyContact" id="emergencyContact"
+                                           maxlength="20">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">紧急联系人电话：</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" name="emergencyContactPhone" id="emergencyContactPhone"
+                                           maxlength="20">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">所属组织：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="emporgname" id="emporgname" disabled="">
+                                </div>
+                            </div>
+                            <div class="form-group cf">
+                                <label class="col-sm-4 control-label">职位名称：</label>
+                                <div class="col-sm-8">
+                                    <!--<input type="text" class="form-control" name="postName" id="postName">-->
+                                    <input type="text" class="form-control" name="postName" id="postName"
+                                           readonly value="" onclick="initPostTree()"
+                                           required="" aria-required="true" minlength="1" maxlength="50"/>
+                                    <div id="orgSelectPostTreeContent" class="menuContent" style="display:none;">
+                                        <ul id="orgSelectPostTreeId" class="ztree" style="margin-top:0; width:160px;"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group cf">
+                                <label class="col-sm-4 control-label">职位级别：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="postLevel" id="postLevel"
+                                           minlength="1" maxlength="50" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group cf">
+                                <label class="col-sm-4 control-label">汇报关系：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="leader" id="leader"
+                                           required="" aria-required="true" minlength="2" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">参加工作日期：</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control layer-date" id="workDate" placeholder="年-月-日" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">入职日期：</label>
+                                <div class="col-sm-8">
+                                    <!--<input type="text" class="form-control" name="entrytime" id="entrytime">-->
+                                    <input class="form-control layer-date" id="entrytime"
+                                    placeholder="年-月-日" >
+                                    <!--onblur="entrytimeOnchange()"-->
+                                    <!--onpropertychange="entrytimeOnchange()"-->
+                                    <!--oninput="entrytimeOnchange()"-->
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">是否转正：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="regular" id="regular"
+                                            maxlength="5">
+                                        <option></option>
+                                        <option>是</option>
+                                        <option>否</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">转正日期：</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control layer-date" id="regularDate" placeholder="年-月-日" >
+                                </div>
+                            </div>
+                            <div class="form-group cf">
+                                <label class="col-sm-4 control-label">司龄：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="workAge" id="workAge"
+                                           required="" aria-required="true" minlength="1" maxlength="2">
+                                </div>
+                            </div>
+
+                            <!--<div class="form-group">
+                                <label class="col-sm-4 control-label">职员职级：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="level" id="level">
+                                </div>
+                            </div>-->
+
+
+                            <div class="form-group" style="float: right;padding-right: 15px;">
+                                <button class="btn btn-primary" type="BUTTON" id="ChgEmpBtn" onclick="update()">变更</button>
+                                <button class="btn btn-primary" type="BUTTON" id="DelEmpBtn" onclick="deleteBtn()">删除</button>
+                            </div>
+                        </form>
+                    </div>
+                    <form id="orgFormId">
+                        <div id="orgform" style="display: none">
+                            <div class="form-horizontal m-t" id="postForm">
+                                <input id="parentOrgId"      type="hidden" name="parentOrgId" class="form-control" type="text">
+                                <input id="currentOrgId"     type="hidden" name="currentOrgId" class="form-control" type="text">
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">上级组织：</label>
+                                    <!--<label class="control-label">上级组织：</label>-->
+                                    <div class="col-sm-9">
+                                        <input id="parentOrgName" name="parentOrgName" class="form-control" type="text" disabled="">
+                                        <!--<input type="text" class="form-control" name="emporgname" id="emporgname" disabled="">-->
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <!--<label class="control-label">当前组织：</label>-->
+                                    <label class="col-sm-3 control-label">当前组织：</label>
+                                    <div class="col-sm-9">
+                                        <input id="currentOrgName" name="currentOrgName" class="form-control" type="text"
+                                               required="" aria-required="true" minlength="2" maxlength="32">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">成立日期：</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control layer-date dateValidtor" id="createOrgDate" placeholder="年-月-日"
+                                        date="true" dateISO="true">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="childOrgDiv" style="display: none;" >
+                                    <label class="col-sm-3 control-label">下级组织：</label>
+                                    <div class="col-sm-9">
+                                        <input id="childOrgName" name="childOrgName" class="form-control" maxlength="32" type="text" >
+                                    </div>
+                                </div>
+                                <div class="form-group org_btn" style="padding-right: 15px;">
+                                    <button class="btn btn-primary" type="BUTTON" id="AddPostBtn" onclick="create()">增加</button>
+                                    <button class="btn btn-primary" type="BUTTON" id="ChgPostBtn" onclick="update()">变更</button>
+                                    <button class="btn btn-primary" type="BUTTON" id="isDeleteOrg2PostBtn" onclick="org2Status('2')">封存</button>
+                                    <button class="btn btn-primary" type="BUTTON" id="isDeleteOrg1PostBtn" onclick="org2Status('1')">解封</button>
+                                    <button class="btn btn-primary" type="BUTTON" id="DelPostBtn" onclick="deleteBtn()">删除</button>
+                                </div>
+                                <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 ">-->
+                                <!--<div class="checkbox">-->
+                                <!--<label>-->
+                                <!--<input type="checkbox" class="checkbox" id="agree" name="agree"> 我已经认真阅读并同意-->
+                                <!--</label>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="js\jquery.min.js"></script>
+<script type="text/javascript" src="js\bootstrap.min.js?v=3.3.6"></script>
+<script type="text/javascript" src="js\content.min.js?v=1.0.0"></script>
+<script type="text/javascript" src="js\plugins\validate\jquery.validate.min.js"></script>
+<script type="text/javascript" src="js\plugins\validate\messages_zh.min.js"></script>
+<!--<script type="text/javascript" src="js\demo\form-validate-demo.min.js"></script>-->
+<!--<script type="text/javascript" src="laydate/laydate.js"></script>-->
+<!--<script type="text/javascript" src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>-->
+<!--<script type="text/javascript" src="plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>-->
+
+<script src="js\plugins\datapicker\bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.core.js"></script>
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.excheck.js"></script>
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.exedit.js"></script>
+
+<script type="text/javascript" src="plugins\select2\select2.js"></script>
+<script type="text/javascript" src="plugins\select2\select2_locale_zh-CN.js"></script>
+
+<script type="text/javascript" src="js\Map.js"></script>
+<script type="text/javascript" src="js\common.js"></script>
+<!--<script type="text/javascript" src="js\org2\autoexpand.js"></script>-->
+<script src="js/plugins/jqueryFileUpload/vendor/jquery.ui.widget.js"></script>
+<script src="js/plugins/jqueryFileUpload/jquery.iframe-transport.js"></script>
+<script src="js/plugins/jqueryFileUpload/jquery.fileupload.js"></script>
+
+
+<script type="text/javascript" src="js\changeorg\autoexpand.js"></script>
+<script type="text/javascript" src="js\org3\orgselect2.js"></script>
+<script type="text/javascript" src="js\org3\orgtree.js"></script>
+<script type="text/javascript" src="js\org3\org.js"></script>
+

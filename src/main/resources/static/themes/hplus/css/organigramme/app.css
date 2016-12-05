@@ -1,0 +1,29 @@
+.font{
+    font-size: 20px;
+}
+.app_btn{
+    width: 100%;
+    height: 40px;
+}
+.app_btn button.app_button{
+    float: right;
+    border-radius: 3px;
+    height: 35px;
+    padding: 6px 16px;
+}
+.wrapper-content {
+    padding: 20px;
+    padding-top: 6px;
+}
+.app_input{
+    border: 1px solid #1ab394 !important;
+    border-radius: 4px;
+    height: 34px;
+    width: 193px;
+    padding: 8px;
+}
+/*.app{*/
+    /*float: right;*/
+    /*padding-right: 2%;*/
+    /*margin-top: 117px;*/
+/*}*/

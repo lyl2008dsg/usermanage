@@ -1,0 +1,89 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+
+
+war {
+	baseName = 'usermanagement'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+
+repositories {
+        maven { url "http://10.0.20.202:8081/nexus/content/repositories/central/" }
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven {
+                url "https://maven.eveoh.nl/content/repositories/releases"
+        }
+        maven { url "https://plugins.gradle.org/m2/" }
+}
+
+configurations {
+	providedRuntime
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-actuator-docs')
+	compile('org.springframework.boot:spring-boot-starter-amqp')
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile('org.springframework.cloud:spring-cloud-starter-eureka')
+	compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
+//	compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-data-redis')
+	compile('org.springframework.boot:spring-boot-starter-jdbc')
+	compile('org.springframework.boot:spring-boot-starter-jersey')
+	compile('org.springframework.boot:spring-boot-starter-mail')
+	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-validation')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile group: 'com.zaxxer', name: 'HikariCP', version: '2.5.1'
+    compile group: 'com.sun.jna', name: 'jna', version: '3.0.9'
+    compile group: 'org.apache.tomcat', name: 'tomcat-catalina', version: '8.0.33'
+
+    compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.2.5'
+    compile group: 'org.apache.shiro', name: 'shiro-ehcache', version: '1.2.5'
+    compile group: 'org.apache.shiro', name: 'shiro-cas', version: '1.2.5'
+
+    compile group: 'javax.servlet', name: 'jstl', version:'1.2'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version : "3.1.0"
+    compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
+    compile group: 'org.webjars', name: 'jquery', version: '1.11.3'
+    compile group: 'org.webjars', name: 'webjars-locator',version:'0.28'
+
+	compile group: 'com.github.pagehelper', name: 'pagehelper',version:'4.1.0'
+
+
+	runtime('mysql:mysql-connector-java')
+	compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Camden.SR3"
+	}
+}

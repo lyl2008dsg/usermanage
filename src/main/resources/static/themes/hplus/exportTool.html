@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <TITLE> 变更组织机构</TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="plugins\zTree_v3\css\demo.css" type="text/css">
+    <link rel="stylesheet" href="plugins\zTree_v3\css\zTreeStyle\zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="css\bootstrap.min.css?v=3.3.6"  >
+    <link rel="stylesheet" href="css\style.min.css?v=4.1.0"      >
+    <link rel="stylesheet" href="plugins\select2\select2_metro.css" />
+    <link rel="stylesheet" href="css\organigramme\importTool.css">
+    <link href="css/plugins/jqueryFileUpload/jquery.fileupload.css" rel="stylesheet">
+</HEAD>
+<BODY>
+    <div class="improtTool_content">
+            <form action="" id="importOrgPostHrFormId">
+                <div>
+                    <input type="text" class="form-control" name="importOrgName" id="importOrgName"
+                           readonly value="" onclick="initExportTree()" placeholder="请选择导入组织"
+                           required="true" aria-required="true" minlength="1" maxlength="50"/>
+                    <div id="orgSelectImportNameContentId" class="menuContent" style="display:none;">
+                        <ul id="orgSelectTreeImportNameId" class="ztree" style="margin-top:5px; width:160px;"></ul>
+                    </div>
+                </div>
+                <br>
+                <!--<input type="file" name="importOrgHrPostSelectId" id="importOrgHrPostSelectId" value=""/>-->
+                <!--<button class="btn btn-primary" type="submit" id="importOrgHrPostId">导入</button>-->
+                <div class="row fileupload-buttonbar">
+                    <div class="col-lg-7" style="display: inline;">
+                        <span>
+                        <a href="#" id="exportOrgHrPostId" onclick="exportOrgPostHrOnClick()">
+                            <button class="btn btn-primary start" type="button">
+                                <i class="glyphicon glyphicon-download"></i>
+                                <span>导出</span>
+                            </button>
+                        </a>
+                        </span>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+<script type="text/javascript" src="js\jquery.min.js"></script>
+<script type="text/javascript" src="js\bootstrap.min.js?v=3.3.6"></script>
+<script type="text/javascript" src="js\content.min.js?v=1.0.0"></script>
+<script type="text/javascript" src="js\plugins\validate\jquery.validate.min.js"></script>
+<script type="text/javascript" src="js\plugins\validate\messages_zh.min.js"></script>
+
+
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.core.js"></script>
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.excheck.js"></script>
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.exedit.js"></script>
+
+<script type="text/javascript" src="plugins\select2\select2.js"></script>
+<script type="text/javascript" src="plugins\select2\select2_locale_zh-CN.js"></script>
+
+<script type="text/javascript" src="js\Map.js"></script>
+<script type="text/javascript" src="js\common.js"></script>
+<!--<script type="text/javascript" src="js\org2\autoexpand.js"></script>-->
+<script src="js/plugins/jqueryFileUpload/vendor/jquery.ui.widget.js"></script>
+<script src="js/plugins/jqueryFileUpload/jquery.iframe-transport.js"></script>
+<script src="js/plugins/jqueryFileUpload/jquery.fileupload.js"></script>
+
+
+<script type="text/javascript" src="js\exportTool\orgselect2.js"></script>
+<script type="text/javascript" src="js\exportTool\orgtree.js"></script>
+<!--<script type="text/javascript" src="js\exportTool\org.js"></script>-->
+

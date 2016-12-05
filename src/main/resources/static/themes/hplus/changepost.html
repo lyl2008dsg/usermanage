@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <TITLE> 变更组织机构</TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet"          href="plugins\zTree_v3\css\demo.css" type="text/css">
+    <link rel="stylesheet"          href="plugins\zTree_v3\css\zTreeStyle\zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="css/organigramme/org.css">
+    <link rel="stylesheet"          href="css\bootstrap.min.css?v=3.3.6"  >
+    <link rel="stylesheet"          href="css\style.min.css?v=4.1.0"      >
+    <link rel="stylesheet"          href="plugins\select2\select2_metro.css" />
+    <!--<link rel="stylesheet" href="laydate/need/laydate.css">-->
+    <!--<script type="text/javascript" src="laydate/laydate.js"></script>-->
+    <link rel="stylesheet" href="plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="css\plugins\datapicker\datepicker3.css" rel="stylesheet">
+</HEAD>
+
+<BODY>
+    <div class="content_wrap cf">
+        <div class="zTreeDemoBackground left fl">
+            <input type="text" placeholder="请在此输入组织"   class="select2-container select2-container-multi input-focblu" id="search_now" style="width: 220px;">
+            <ul id="nowOrg" class="ztree"></ul>
+        </div>
+        <!--<button type="button" class="btn btn-primary btn-sm btn-width" onclick="change()">变更</button>-->
+        <div class="right fl">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title" style="border: none;">
+                    <!--<h5>维护职级</h5>-->
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="form_basic.html#">选项1</a>
+                            </li>
+                            <li><a href="form_basic.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                     </div>
+                 </div>
+                <form id="changepostFormId">
+                    <div class="ibox-content">
+                        <div class="form-horizontal m-t" id="postForm">
+                            <input id="postId"      type="hidden" name="postId" class="form-control" type="text">
+                            <input id="parentId"    type="hidden" name="parentId" class="form-control" type="text">
+                            <div class="form-group" id="postCodeDivId">
+                                <label class="control-label col-sm-3">职位编码：</label>
+                                <div class="col-sm-9">
+                                    <input id="postCode" class="form-control" type="text" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">职位名称：</label>
+                                <div class="col-sm-9">
+                                    <input id="postName" name="postName" class="form-control" type="text"
+                                           required="" aria-required="true" minlength="2" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">职位级别：</label>
+                                <div class="col-sm-9">
+                                    <input id="postLevel" name="postLevel" class="form-control" type="text"
+                                           required="" aria-required="true" minlength="2" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">成立日期：</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control layer-date" placeholder="年-月-日"
+                                           id="sDate" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">所属组织：</label>
+                                <div class="col-sm-9">
+                                    <input id="orgName" name="orgName" class="form-control" type="text" disabled="">
+                                </div>
+                            </div>
+                            <!--<div class="form-group" id="fullpathdiv">
+                                <label class="control-label col-sm-3">FULLPATH：</label>
+                                <div class="col-sm-9">
+                                    <input id="fullpath" name="firstname" class="form-control" type="text" disabled="">
+                                </div>
+                            </div>-->
+                            <div class="form-group" style="float: right">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-primary" type="BUTTON" id="AddPostBtn" onclick="create()">增加</button>
+                                    <button class="btn btn-primary" type="BUTTON" id="ChgPostBtn" onclick="update()">变更</button>
+                                    <button class="btn btn-primary" type="BUTTON" id="isDelete2PostBtn" onclick="updatePostIsDelete($('#postId').val(), '2')">封存</button>
+                                    <button class="btn btn-primary" type="BUTTON" id="isDelete1PostBtn" onclick="updatePostIsDelete($('#postId').val(), '1')">解封</button>
+                                    <button class="btn btn-primary" type="BUTTON" id="DelPostBtn" onclick="deletePost($('#postId').val())">删除</button>
+                                </div>
+                            </div>
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 ">-->
+                                    <!--<div class="checkbox">-->
+                                        <!--<label>-->
+                                            <!--<input type="checkbox" class="checkbox" id="agree" name="agree"> 我已经认真阅读并同意-->
+                                        <!--</label>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="js\jquery.min.js"></script>
+<script type="text/javascript" src="js\bootstrap.min.js?v=3.3.6"></script>
+<script type="text/javascript" src="js\content.min.js?v=1.0.0"></script>
+<script type="text/javascript" src="js\plugins\validate\jquery.validate.min.js"></script>
+<script type="text/javascript" src="js\plugins\validate\messages_zh.min.js"></script>
+<!--<script type="text/javascript" src="js\demo\form-validate-demo.min.js"></script>-->
+<!--<script type="text/javascript" src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>-->
+<script src="js\plugins\datapicker\bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.core.js"></script>
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.excheck.js"></script>
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.exedit.js"></script>
+
+<script type="text/javascript" src="plugins\select2\select2.js"></script>
+<script type="text/javascript" src="plugins\select2\select2_locale_zh-CN.js"></script>
+
+<script type="text/javascript" src="js\Map.js"></script>
+<script type="text/javascript" src="js\common.js"></script>
+<!--<script type="text/javascript" src="js\post\autoexpand.js"></script>-->
+<script type="text/javascript" src="js\changeorg\autoexpand.js"></script>
+<script type="text/javascript" src="js\post\orgselect2.js"></script>
+<script type="text/javascript" src="js\post\orgtree.js"></script>
+<script type="text/javascript" src="js\post\post.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>

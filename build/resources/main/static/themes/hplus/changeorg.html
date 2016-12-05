@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+
+<HTML>
+<HEAD>
+    <TITLE> 变更组织机构</TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" href="plugins\zTree_v3\css\demo.css" type="text/css">
+    <link rel="stylesheet" href="plugins\zTree_v3\css\zTreeStyle\zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="css\bootstrap.min.css?v=3.3.6" type="text/css">
+    <link rel="stylesheet" href="css\style.min.css?v=4.1.0" type="text/css">
+    <link rel="stylesheet" href="plugins\select2\select2_metro.css" type="text/css">
+    <link rel="stylesheet" href="css/organigramme/changeorg.css">
+    <link rel="stylesheet" href="css\plugins\datapicker\datepicker3.css" rel="stylesheet">
+
+</HEAD>
+
+<BODY>
+<!--<h1>变更组织</h1>-->
+    <div class="content_wrap cf">
+        <div class="zTreeDemoBackground left fl">
+            <input type="text" placeholder="请在此输入组织"   class="select2-container select2-container-multi input-focblu" id="search_now" style="width: 220px;">
+            <ul id="nowOrg" class="ztree"></ul>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm btn-width fl" onclick="change()">变更</button>
+        <div class="right fl">
+            <input type="text" placeholder="请在此输入组织"   class="select2-container select2-container-multi input-focblu" id="search_future" style="width: 220px;">
+            <ul id="futureOrg" class="ztree"></ul>
+        </div>
+    </div>
+<script type="text/javascript" src="js\jquery.min.js"></script>
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.core.js"></script>
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.excheck.js"></script>
+<script type="text/javascript" src="plugins\zTree_v3\js\jquery.ztree.exedit.js"></script>
+
+<script type="text/javascript" src="plugins\select2\select2.js"></script>
+<script type="text/javascript" src="plugins\select2\select2_locale_zh-CN.js"></script>
+
+<script type="text/javascript" src="js\Map.js"></script>
+<script type="text/javascript" src="js\common.js"></script>
+<script type="text/javascript" src="js\changeorg\findorg.js"></script>
+<script type="text/javascript" src="js\changeorg\autoexpand.js"></script>
+<script type="text/javascript" src="js\changeorg\changeorg.js"></script>
+
+
+</body>
+
+</html>
